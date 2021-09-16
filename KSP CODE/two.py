@@ -7,6 +7,7 @@ rocket = conn.connect.space_center.active_vessel;
 #abort
 def abort(): 
   print("sucks to suck")
+  
 #controls and stuff
 
 hover = False
