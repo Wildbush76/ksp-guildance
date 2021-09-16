@@ -19,9 +19,9 @@ while True:
   gf = math.floor(rocket.flight().g_force)
   if(hover == True):
     if(speed > 4 and prev < alt):
-      rocket.control.throttle -=0.1
+      rocket.control.throttle -=0.1;
      elif(speed > 4 and prev > alt):
-      rocket.control.throttle +=0.1
+      rocket.control.throttle +=0.1;
       #make it do the funky hover
     #something
    else:
