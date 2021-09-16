@@ -12,8 +12,10 @@ while True:
   alt = math.floor(rocket.flight().mean_altitude)
   speed = math.floor(rocket.flight().velocity)
   heading = math.floor(rocket.flight().heading)
-  print(rocket.flight().heading)
-  if(alt > 1000 and alt < 10000 and heading < 45):
+  roll = math.flooor(rocket.flight().roll)
+  print('roll : ') + str(roll)
+  print('heading : ' + str(heading))
+  if(alt > 1000 and alt < 10000):
     rocket.control.yaw = 2;
     #death is soon so well lets go
   elif(alt > 1000):
