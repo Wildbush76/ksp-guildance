@@ -9,18 +9,15 @@ phase = 1
 #abort
 def abort():
     print("ABORTING LAUNCH")
+    #oh shit something went wrong
     rocket.control.abort = True
     time.sleep(6)
     rocket.control.sas = False
     rocket.control.parachutes = True
     phase =  4
 
-
-print("rocket is ready for launch")
-print("starting launch sequence")
 rocket.control.throttle = 0.7
 rocket.control.activate_next_stage()
-print("lift off")
 
 while(phase != 4):
     altitude = rocket.flight().mean_altitude
@@ -34,8 +31,19 @@ while(phase != 4):
             rocket.control.activate_next_stage()
         if (heading < 180 and altitude < 50000):
             rocket.control.yaw = (pitchDiff / 90)
-        elif(altitude < 50000):
+        elif(altitude < 50000): 
             rocket.control.yaw = 0.5
+        if(rocket.orbit.apoapsis  > 100000):
+            phase = 2#enter phase two
+            rocket.control.sas = True
+            rocket.control.rcs = True
+            sleep(0.5)
+            rocket.control.sas_mode = conn.space_center.SASMode.prograde
+            Print("Entering cruise stage")
+    elif(phase == 2):
+        if(altitude > 90000):
+            phase 
+        
 
         
     
